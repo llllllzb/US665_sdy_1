@@ -1,0 +1,8 @@
+[
+{"reply": ["已是最大音量"], "pcm": ["101.pcm"], "cmd": "UNI_LOCAL_TONE_MAX_VOLUME", "hash": [2407815], "cmd_word": ["NULL"]},
+{"reply": ["已是最小音量"], "pcm": ["102.pcm"], "cmd": "UNI_LOCAL_TONE_MIN_VOLUME", "hash": [2407815], "cmd_word": ["NULL"]},
+{"reply": ["你好，有什么可以帮你", "我在噢，请说", "我在"], "pcm": ["103.pcm", "104.pcm", "105.pcm"], "cmd": "wakeup_uni", "hash": [2947460911], "cmd_word": ["你好魔方"]},
+{"reply": ["有需要再叫我"], "pcm": ["106.pcm"], "cmd": "asr_timeout_uni", "hash": [512164577], "cmd_word": ["asrtimeout"]},
+{"reply": ["有需要再叫我"], "pcm": ["106.pcm"], "cmd": "exitUni", "hash": [2497873774, 2389288886], "cmd_word": ["退下", "再见"]},
+{"reply": ["已设为十五度"], "pcm": ["107.pcm"], "cmd": "TempSet15", "hash": [4038776460, 265656716], "cmd_word": ["设置十五度", "十五度"]},
+]

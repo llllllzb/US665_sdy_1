@@ -1,0 +1,6 @@
+UNI_LOCAL_TONE_MAX_VOLUME=NULL@已是最大音量
+UNI_LOCAL_TONE_MIN_VOLUME=NULL@已是最小音量
+wakeup_uni=你好魔方@你好，有什么可以帮你|我在噢，请说|我在
+asr_timeout_uni=asrtimeout@有需要再叫我
+exitUni=退下|再见@有需要再叫我
+TempSet15=设置十五度|十五度@已设为十五度

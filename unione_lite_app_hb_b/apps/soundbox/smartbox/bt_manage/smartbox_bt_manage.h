@@ -1,0 +1,35 @@
+// binary representation
+// attribute size in bytes (16), flags(16), handle (16), uuid (16/128), value(...)
+
+#ifndef _SMARTBOX_BT_MANAGE_H
+#define _SMARTBOX_BT_MANAGE_H
+
+#define DEVICE_EVENT_FROM_RCSP	(('R' << 24) | ('C' << 16) | ('S' << 8) | 'P')
+
+
+enum RCSP_MSG_T {
+    MSG_UNI_GET_DEV_UPDATE_FILE_INFO_OFFSET,
+    MSG_UNI_INQUIRE_DEVEICE_IF_CAN_UPDATE,
+    MSG_UNI_LOADER_DOWNLOAD_START,
+    MSG_UNI_UPDATE_START,
+    MSG_UNI_ENTER_UPDATE_MODE,
+    MSG_UNI_DEV_DISCONNECT,
+    MSG_UNI_BLE_UPDATE_START,
+    MSG_UNI_SPP_UPDATE_START,
+    MSG_UNI_ADV_SETTING_SYNC,
+    MSG_UNI_ADV_SETTING_UPDATE,
+    MSG_UNI_UPDATE_EQ,
+    MSG_UNI_UPDATE_SEQ,
+    MSG_UNI_SWITCH_DEVICE,
+    MSG_UNI_UPDATE_PLAYER_TIME,
+    MSG_UNI_UPDATE_PLAYER_STATE,
+    MSG_UNI_UPDATE_MUSIC_INFO,
+    MSG_UNI_UPDATE_MUSIC_PLAYER_TIME_TEMER,
+    MSG_UNI_UPDAET_ADV_STATE_INFO,
+    MSG_UNI_REBOOT_DEV,
+    MSG_UNI_USER_SPP_BLE_STATE,
+};
+
+int smartbox_soundbox_state_init();
+void send_version_to_sibling(void);
+#endif
