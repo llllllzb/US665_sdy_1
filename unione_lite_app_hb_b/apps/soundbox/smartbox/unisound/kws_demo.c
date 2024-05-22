@@ -392,6 +392,9 @@ static void uni_kws_task_handle(void *p)
   cJSON *jnlu = NULL;
 
   while (1) {
+    //这里的"taskq"并不特指任线程,只是一个名字而已(理论上名字乱写也没事)
+    //os_task_pend是阻塞式地等待其他地方往本线程发送信息，这里的本线程名字为uni_kws
+    //往本线程发送信息时需要知道本线程的名字，如uni_kws
     res = os_task_pend("taskq", msg, ARRAY_SIZE(msg));
     if (res != OS_TASKQ) {
         continue;
@@ -518,6 +521,7 @@ static int _internal_kws_init(void) {
   int64_t len_grammar_buffer = sizeof(global_kws_lp_grammar);
   const char* grammar_buffer = global_kws_lp_grammar;
 
+  //拿lp模型和lp语法的内存初始化地址来生成kws句柄
   g_kws_context.kws = UalOFAInitializeFromBuffer(am_buffer, grammar_buffer);
   if (NULL == g_kws_context.kws) {
     LOGE(KWS_TAG, "Error initializing!");
@@ -525,11 +529,13 @@ static int _internal_kws_init(void) {
   }
 
   //ShowResourceInfo(g_kws_context.kws);
+  //设置kws引擎的某些属性的属性值
   UalOFASetOptionInt(g_kws_context.kws, KWS_SET_BUNCH_FRAME_NUMBER, 12);
   //UalOFASetOptionString(g_kws_context.kws, 800, "mandarin");
   UalOFASetOptionInt(g_kws_context.kws, KWS_BEAM_ID, 10);
   printf("kwslp init done \n");
-
+  
+  //获取当前活跃的lp模型的id？
   g_kws_context.am_id = UalOFAGetActiveAmId(g_kws_context.kws);
 
   const char* version = UalOFAGetVersion(g_kws_context.kws);

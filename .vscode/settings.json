@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "includes.h": "c",
-        "app_main.h": "c"
+        "app_main.h": "c",
+        "debug.h": "c"
     }
 }
