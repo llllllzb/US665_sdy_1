@@ -399,15 +399,20 @@ static void uni_kws_task_handle(void *p)
     if (res != OS_TASKQ) {
         continue;
     }
-    if (msg[0] == Q_EVENT) {
-      switch (msg[1]) {
+    if (msg[0] == Q_EVENT) 
+    {
+      switch (msg[1]) 
+      {
+        //这个应该是识别语音的
         case KEY_UNI_KWS_POST_EVENT:
           memcpy(&kws_result, (kws_result_msg_t *)msg[2], sizeof(kws_result_msg_t));
           LOGD(KWS_TAG,"recv result:%s, scord:%s", kws_result.command, Float2String(kws_result.score));
           do {
-            if (kws_result.event_id == VUI_LOCAL_ASR_TIMEOUT_EVENT && kws_is_running()) {
+            if (kws_result.event_id == VUI_LOCAL_ASR_TIMEOUT_EVENT && kws_is_running()) 
+            {
               #ifdef DEFAULT_PCM_ASR_TIMEOUT
-              if (0 != uni_pcm_play(DEFAULT_PCM_ASR_TIMEOUT, "exitUni")) {
+              if (0 != uni_pcm_play(DEFAULT_PCM_ASR_TIMEOUT, "exitUni")) 
+              {
                 kws_switch_mode(ENGINE_KWS_MODE_WAKEUP);
               }
               #else
@@ -426,7 +431,8 @@ static void uni_kws_task_handle(void *p)
           }
           break;
         case KEY_UNI_PLAY_EVENT:
-          if (0 != user_player_play(msg[2])) {
+          if (0 != user_player_play(msg[2])) 
+          {
             kws_relaunch();
           }
           break;
